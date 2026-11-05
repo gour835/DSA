@@ -66,10 +66,69 @@ class LinkedList:
 
         curr.next = new_node
 
-    
+    def clear(self):
+        self.head = None
+        self.n = 0
 
+    def delete_head(self):
+        if self.head == None:
+            return 'Empty LinkedList'
+        self.head = self.head.next
+        self.n -= 1
 
+    def pop(self):
+        curr = self.head
+        if curr.next == None:
+            self.delete_head()
+        while curr.next.next != None:
+            curr = curr.next
 
+        curr.next = None   
+        self.n -= 1
+
+    def delete(self, value):
+        curr = self.head
+        if curr.data == value:
+            return self.delete_head()
+        while curr.next != None:
+            if curr.next.data == value:
+                break
+            curr = curr.next
+
+        if curr.next == None:
+            print('Item not in linked list !')
+            return
+        curr.next = curr.next.next
+        self.n -= 1
+
+    def search(self, value):
+        if self.head == None:
+            return print('Empty')
+        
+        curr = self.head
+        idx = 0
+
+        while curr != None:
+            if curr.data == value:
+                break
+            # increment
+            curr = curr.next 
+            idx += 1
+        if curr == None:
+            return print('not found')
+        print(idx)
+
+    def __getitem__(self, value):
+        curr = self.head
+        index = 0
+
+        while curr != None:
+            if index == value:
+                return str(curr.data)
+            # increment
+            curr = curr.next
+            index += 1
+        return 'not found'
     
 a = LinkedList()
 
@@ -78,6 +137,8 @@ a.Insert_Head(2)
 a.Insert_Head(3)
 a.Insert_Head(4)
 
-a.insert(30, 3.6)
 # print(len(a))
+print(a)
+
+print(a[0])
 print(a)
