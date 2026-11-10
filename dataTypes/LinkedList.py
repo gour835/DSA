@@ -170,17 +170,50 @@ class LinkedList:
         # updating the head of LL
 
         self.head = previous
+
+    def format_ll(self):
+        curr = self.head
+
+        while curr != None:
+            # check if value is * or /
+            if curr.data == '*' or curr.data == '/':
+                curr.data = ' '
+                if curr.next.data == '*' or curr.next.data == '/':
+                    curr.next.next.data = curr.next.next.data.upper() 
+                    curr.next = curr.next.next
+           
+            # increment 
+            curr = curr.next
+
+
+
+
+
+
 a = LinkedList()
 
-a.Insert_Head(3)
-a.Insert_Head(5)
-a.Insert_Head(6)
-a.Insert_Head(8)
-a.Insert_Head(9)
+a.append('T')
+a.append('h')
+a.append('e')
+a.append('*')
+a.append('/')
+a.append('s')
+a.append('k')
+a.append('y')
+a.append('/')
+a.append('i')
+a.append('s')
+a.append('/')
+a.append('*')
+a.append('b')
+a.append('l')
+a.append('u')
+a.append('e')
+
 
 # print(len(a))
 print(a)
-a.reverse()
+a.format_ll()
 print(a)
 
 
