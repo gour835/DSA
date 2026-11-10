@@ -129,16 +129,59 @@ class LinkedList:
             curr = curr.next
             index += 1
         return 'not found'
-    
+
+    def replace_max_value(self, value):
+        temp = self.head
+        max = temp
+        
+        # looping through the LL to find the maximum value
+        while temp != None:
+            if temp.data > max.data:
+                max = temp
+            temp = temp.next
+
+        # replacing the max value to the value given
+        max.data = value
+
+    def sum_odd(self):
+        curr = self.head
+        idx = 0
+        sum = 0
+
+        while curr != None:
+            if idx % 2 != 0:
+                sum += curr.data
+            # increment
+            curr = curr.next
+            idx += 1
+        return sum
+
+    def reverse(self):
+        curr = self.head
+        previous = None
+
+        while curr != None:
+            # initialising and saving the next 
+            next = curr.next
+            curr.next = previous
+            previous = curr
+            curr = next
+
+        # updating the head of LL
+
+        self.head = previous
 a = LinkedList()
 
-a.Insert_Head(1)
-a.Insert_Head(2)
 a.Insert_Head(3)
-a.Insert_Head(4)
+a.Insert_Head(5)
+a.Insert_Head(6)
+a.Insert_Head(8)
+a.Insert_Head(9)
 
 # print(len(a))
 print(a)
-
-print(a[0])
+a.reverse()
 print(a)
+
+
+
