@@ -3,7 +3,7 @@ class Node:
         self.data = value
         self.next = None
 
-class Stacks:
+class Stack:
     def __init__(self):
         self.top = None
 
@@ -52,17 +52,27 @@ class Stacks:
 
 
 
-a = Stacks()
+def TextEditor(text, pattern):
+    u = Stack()
+    r = Stack()
 
-a.push('o')
-a.push('l')
-a.push('l')
-a.push('e')
-a.push('h')
+    for i in text:
+        u.push(i)
 
-print(a)
+    for i in pattern:
+        if i == 'u':
+            data = u.pop()
+            r.push(data)
+        else:
+            data = r.pop()
+            u.push(data)
 
-a.reverse()
-print(a)
+    result = ''
 
-print(a.pop())
+    while not u.isEmpty():
+        result = u.pop() + result
+
+    return result
+
+
+print(TextEditor('kolkata', 'uu'))
