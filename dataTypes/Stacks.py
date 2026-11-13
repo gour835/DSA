@@ -15,6 +15,17 @@ class Stack:
 
         new_node.next = self.top
         self.top = new_node
+
+    def count(self):
+            curr = self.top
+            idx = 0
+    
+            while curr != None:
+                idx += 1
+                curr = curr.next
+    
+            return idx
+
     
     def __str__(self):
         curr = self.top
@@ -75,4 +86,3 @@ def TextEditor(text, pattern):
     return result
 
 
-print(TextEditor('kolkata', 'uu'))
