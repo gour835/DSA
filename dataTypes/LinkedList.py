@@ -185,6 +185,28 @@ class LinkedList:
             # increment 
             curr = curr.next
 
+    def rotate(self, value):
+        curr = self.head
+        idx = 1
+        # getting the tail and the index first
+        while curr.next != None:
+            idx += 1
+            curr = curr.next
+
+        tail = curr
+
+        for i in range(value):
+            new_tail = self.head
+            new_head = self.head.next
+
+            tail.next = new_tail
+            tail.next.next = None
+            tail = tail.next
+            self.head = new_head
+
+            
+
+
 
 
 
@@ -192,29 +214,20 @@ class LinkedList:
 
 a = LinkedList()
 
-a.append('T')
-a.append('h')
-a.append('e')
-a.append('*')
-a.append('/')
-a.append('s')
-a.append('k')
-a.append('y')
-a.append('/')
-a.append('i')
-a.append('s')
-a.append('/')
-a.append('*')
-a.append('b')
-a.append('l')
-a.append('u')
-a.append('e')
+a.append(1)
+a.append(2)
+a.append(3)
+a.append(4)
 
 
 # print(len(a))
 print(a)
-a.format_ll()
-print(a)
+
+a.rotate(5)
+
+print('after',a)
+
+
 
 
 
