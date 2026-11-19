@@ -204,7 +204,27 @@ class LinkedList:
             tail = tail.next
             self.head = new_head
 
+    def find_k(self, k):
+         
+        curr = self.head
+        idx = 0
+        
+        while curr != None:
+            idx += 1
+            curr = curr.next
             
+        if k > idx:
+            return -1
+        
+        if k == idx:
+            return self.head.data
+        
+        idx1 = idx - k
+        curr = self.head
+        for i in range(idx1):
+            curr = curr.next
+            
+        return curr.data
 
 
 
@@ -218,14 +238,19 @@ a.append(1)
 a.append(2)
 a.append(3)
 a.append(4)
+a.append(5)
+a.append(6)
+a.append(7)
+a.append(8)
+a.append(9)
 
 
 # print(len(a))
 print(a)
 
-a.rotate(5)
 
-print('after',a)
+
+print(a.find_k(2))
 
 
 
